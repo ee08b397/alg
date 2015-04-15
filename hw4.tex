@@ -1,0 +1,246 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{enumerate}
+\usepackage{fancyhdr} % Required for custom headers
+\usepackage{lastpage} % Required to determine the last page for the footer
+\usepackage{extramarks} % Required for headers and footers
+\usepackage[usenames,dvipsnames]{color} % Required for custom colors
+\usepackage{graphicx} % Required to insert images
+\usepackage[tight,footnotesize]{subfigure} % Required for subfig
+\usepackage{caption} % Required for subfig
+\usepackage{hyperref} % Required for url
+\usepackage{listings} % Required for insertion of code
+\usepackage{courier} % Required for the courier font
+\usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+\linespread{1.1} % Line spacing
+\pagestyle{fancy}
+\lhead{\hmwkAuthorName} % Top left header
+% \chead{\hmwkClass\ (\hmwkClassInstructor\ \hmwkClassTime): \hmwkTitle} % Top center head
+\chead{\hmwkClass\ : \hmwkTitle} % Top center head
+\rhead{\firstxmark} % Top right header
+\lfoot{\lastxmark} % Bottom left footer
+\cfoot{} % Bottom center footer
+\rfoot{Page\ \thepage\ of\ \protect\pageref{LastPage}} % Bottom right footer
+\renewcommand\headrulewidth{0.4pt} % Size of the header rule
+\renewcommand\footrulewidth{0.4pt} % Size of the footer rule
+\setlength\parindent{0pt} % Removes all indentation from paragraphs
+
+% Define floor and ceiling
+\def\lc{\left\lceil}   
+\def\rc{\right\rceil}
+\def\lf{\left\lfloor}   
+\def\rf{\right\rfloor}
+
+% Set your language 
+%\lstset{language=Java}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+ 
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=8pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+\lstset{style=mystyle}
+
+% Header and footer for when a page split occurs within a problem environment
+\newcommand{\enterProblemHeader}[1]{
+\nobreak\extramarks{#1}{#1 continued on next page\ldots}\nobreak
+\nobreak\extramarks{#1 (continued)}{#1 continued on next page\ldots}\nobreak
+}
+
+% Header and footer for when a page split occurs between problem environments
+\newcommand{\exitProblemHeader}[1]{
+\nobreak\extramarks{#1 (continued)}{#1 continued on next page\ldots}\nobreak
+\nobreak\extramarks{#1}{}\nobreak
+}
+
+\setcounter{secnumdepth}{0} % Removes default section numbers
+\newcounter{homeworkProblemCounter} % Creates a counter to keep track of the number of problems
+
+\newcommand{\homeworkProblemName}{}
+\newenvironment{homeworkProblem}[1][Problem \arabic{homeworkProblemCounter}]{ % Makes a new environment called homeworkProblem which takes 1 argument (custom name) but the default is "Problem #"
+\stepcounter{homeworkProblemCounter} % Increase counter for number of problems
+\renewcommand{\homeworkProblemName}{#1} % Assign \homeworkProblemName the name of the problem
+\section{\homeworkProblemName} % Make a section in the document with the custom problem count
+\enterProblemHeader{\homeworkProblemName} % Header and footer within the environment
+}{
+\exitProblemHeader{\homeworkProblemName} % Header and footer after the environment
+}
+
+\newcommand{\problemAnswer}[1]{ % Defines the problem answer command with the content as the only argument
+\noindent\framebox[\columnwidth][c]{\begin{minipage}{0.98\columnwidth}#1\end{minipage}} % Makes the box around the problem answer and puts the content inside
+}
+
+\newcommand{\homeworkSectionName}{}
+\newenvironment{homeworkSection}[1]{ % New environment for sections within homework problems, takes 1 argument - the name of the section
+\renewcommand{\homeworkSectionName}{#1} % Assign \homeworkSectionName to the name of the section from the environment argument
+\subsection{\homeworkSectionName} % Make a subsection with the custom name of the subsection
+\enterProblemHeader{\homeworkProblemName\ [\homeworkSectionName]} % Header and footer within the environment
+}{
+\enterProblemHeader{\homeworkProblemName} % Header and footer after the environment
+}
+
+\newlength{\tabcont}
+
+\newcommand{\tab}[1]{%
+\settowidth{\tabcont}{#1}%
+\ifthenelse{\lengthtest{\tabcont < .25\linewidth}}%
+{\makebox[.25\linewidth][l]{#1}\ignorespaces}%
+{\makebox[.5\linewidth][l]{\color{red} #1}\ignorespaces}%
+}%
+%----------------------------------------------------------------------------------------
+%	NAME AND CLASS SECTION
+%----------------------------------------------------------------------------------------
+
+\newcommand{\hmwkTitle}{Homework\ \#4} % Assignment title
+\newcommand{\hmwkDueDate}{Monday,\ January\ 1,\ 2012} % Due date
+\newcommand{\hmwkClass}{Fundamental Algorithms} % Course/class
+\newcommand{\hmwkClassTime}{} % Class/lecture time
+\newcommand{\hmwkClassInstructor}{Prof. Joel Spencer} % Teacher/lecturer
+\newcommand{\hmwkAuthorName}{Songxiao Zhang, N10224459, {\tt 72}} % Your name
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\title{
+\textmd{\textbf{\hmwkClass:\ \hmwkTitle}}\\
+}
+\author{\textbf{\hmwkAuthorName}}
+
+\begin{document}
+
+\maketitle
+
+%----------------------------------------------------------------------------------------
+%	PROBLEM 1
+%----------------------------------------------------------------------------------------
+\begin{homeworkProblem}
+$T(n) = 9T(n/3) + n^2$  \\
+$T(1) = 1$  \\
+$T(3) = 9T(3/3) + 3^2 = 9*T(1) + 9  = 9*1 + 9  = 18$   \\
+$T(9) = 9T(9/3) + 9^2 = 9*T(3) + 81 = 9*(9*1 + 9) + 81 = 243$ \quad  \\
+$T(27) = 9T(27/3) + 27^2 = 9*T(9) + 729 = 9*(9*(9*1 + 9)+81) + 729 = 2916$   \\
+$T(81) = 9T(81/3) + 81^2 = 9*T(27) + 6561 = 9*2916 + 6561 = 32805$   \\
+$T(243)= 9T(243/3) + 243^2 = 9*T(81) + 59049 = 9*32805 + 59049 = 354294$  \\
+A general guess for $T(3^i)$ where $i=log_3 n$ would be
+$$ T(3^i) = \sum\limits_{j=0}^{i-1} (9^{i-j} \times 3^j + 3^{2i} )
+= \sum\limits_{j=0}^{i-1} (3^{2i-j} + 3^{2i} ) $$
+
+$$ T(n) = \sum\limits_{j=0}^{log_3 n - 1} (9^{log_3 n - j} \times 3^j  + n^2)
+    = \sum\limits_{j=0}^{log_3 n - 1} (3^{2log_3 n - j}  + n^2)$$
+    
+By approaching from left side
+$ T(3^i) > \sum\limits_{j=0}^{i-1} (3^{2i} ) 
+        % = \frac{3^{2(i-1)} - 1}{3^2 - 1}
+        % = \frac{3^{2i} - 1}{8} $, from right side 
+          = i3^{2i} $, from right side 
+$ T(3^i) < \sum\limits_{j=0}^{i-1} (2 \times 3^{2i} ) 
+        %  = \frac{3^{2(i-1)-1}}{3^2 - 1}
+        %  = \frac{3^{2i} - 1}{4} $. \\
+         = 2i3^{2i} $. \\
+So $T(3^i) = \Theta(i3^{2i})$. $T(n) = \Theta(n^2 lg\ n)$. \\\
+
+By Master Theorem, $T(n) = 9T(n/3) + n^2$, $a=9, b=3$, \\
+$f(n) = \Theta(n^{log_b a}) = \Theta(n^2)$, then $T(n) = \Theta(n^{log_b a}lg\ n) = \Theta(n^2 lg\ n)$
+% n = 3^2, 9*(n/3)**2 + 9**2*(n/3^2) + n**2
+% n = 3^3, 9*(n/3)**2 + 9**2*(n/3)   + 9**3*(n/3**3) + n**2
+% n = 3^4, 9*(n/3)^2+9^2*(n/3^2)+9^3*(n/3^3)
+\end{homeworkProblem}
+
+%----------------------------------------------------------------------------------------
+%	PROBLEM 2
+%----------------------------------------------------------------------------------------
+\begin{homeworkProblem}
+\begin{enumerate}[a.]
+    \item By Master Theorem, $T(n) = 6T(n/2) + n\sqrt{n}$, $a=6, b=2$, \\
+          $f(n) = n^{1.5} = O(n^{log_b a - \epsilon}) = O(n^{log_2 6 - (log_2 6 - 1.5)})$, 
+          then $T(n) = \Theta(n^{log_b a}) = \Theta(n^{log_2 6})$
+    \item By Master Theorem, $T(n) = 4T(n/2) + n\sqrt{n}$, $a=4, b=2$, \\
+          $f(n) = n^{5} = O(n^{log_b a + \epsilon}) = O(n^{2+3})$, 
+          $4(n/2)^5 = n^5/2^3 \leq n^5/2^3$ and $1/2^3 < 1$ since $af(n/b) \leq cf(n)$ 
+          then $T(n) = \Theta(f(n)) = \Theta(n^5)$
+    \item By Master Theorem, $T(n) = 4T(n/2) + 7n^2 + 2n + 1$, $a=4, b=2$, \\
+          $f(n) = \Theta(n^{2}) = O(n^{log_b a}) = O(n^{2})$, 
+          then $T(n) = \Theta(n^{log_b a}lg n) = \Theta(n^{2}lgn)$
+\end{enumerate}
+\end{homeworkProblem}
+
+%----------------------------------------------------------------------------------------
+%	PROBLEM 3
+%----------------------------------------------------------------------------------------
+\begin{homeworkProblem}
+Instead of divide the number into 2 like Karatsuba algorithm did ($X = x_1 \times x + x_0$), 
+Toom-3 divide the number into 3 ($X = x_2 \times x^2 + x_1 \times x + x_0$) so in each digit it takes
+$T(\frac{n}{3})$, while Karatsuba took $T(\frac{n}{2})$. 
+
+Karatsuba has 3 recursions $3T(\frac{n}{2})$ and 2 additions ($O(n)$). Toom-3 has 5 recursions $5T(\frac{n}{3})$ and 30 additions and subtractions ($O(n)$). 
+
+Thus, by Master Theorem, the running time of Toom-3 $$T(n) = 5T(\frac{n}{3}) + \Theta(n) = \Theta(n^{log_3 5}). $$ Toom-3 algorithm would be faster than Karatsuba algorithm when $n$ gets large. 
+\end{homeworkProblem}
+
+%----------------------------------------------------------------------------------------
+%	PROBLEM 4
+%----------------------------------------------------------------------------------------
+\begin{homeworkProblem}
+\begin{enumerate}[a.]
+    \item $T(n) = n^2+(n+1)^2+\ldots + (2n)^2 
+          = \sum\limits_{i=0}^{2n} i^2 - \sum\limits_{i=0}^{n-1} i^2$, since
+          $\sum\limits_{i=0}^{n} i^2 = \frac{n(n+1)(2n+1)}{6}$. 
+          $$T(n) = \frac{2n(2n+1)(4n+1)}{6} - \frac{(n-1)(n-1+1)(2n-2+1)}{6} = \frac{14n^3+15n^2-n}{6}$$
+          $g(n) = \Theta(n^3), c_1 = 2, c_2 = 3 $. 
+    \item $T(n) = \lg^2(1)+\lg^2(2)+\ldots + \lg^2(n) = \sum\limits_{i=0}^{n} lg^2 i $. 
+          Approach from right $T(n) \leq nlg^2 n$, and approach from left by deleting first $n/2$ itmes
+          $T(n) > (n/2) * lg^2(n/2)$ but $\frac{1}{2}$ can never get, we can take $\frac{1}{4}$ as a smaller number that we can reach. So we can get $g(n) = \Theta(nlg^2n), c_1 = 1/4, c_2 = 1 $. 
+    \item $T(n)=1^3+\ldots+n^3=\sum\limits_{i=1}^{n} \frac{n^2 \times (n+1)^2}{4} = \frac{n^4+2n^3+n^2}{4}$
+          so $g(n) = \Theta(n^4), c_1 = 1/4, c_2 = 1 $
+\end{enumerate}
+\end{homeworkProblem}
+
+%----------------------------------------------------------------------------------------
+%	PROBLEM 5
+%----------------------------------------------------------------------------------------
+\begin{homeworkProblem}
+\begin{lstlisting}[frame=single]
+// Assume Integer.parseInt(A.toString()) - Integer.parseInt(B.toString()) > 0 
+for (int i = N; i >= 0; i--) {
+    if (A[i] >= B[i])
+        C[i] = A[i] - B[i];
+    else {
+        C[i] = A[i] + 10 - B[i];
+        A[i+1]--;
+    }
+}
+\end{lstlisting}
+It took $N-1$ times so $T(n) = \Theta(n)$. 
+\end{homeworkProblem}
+
+% \begin{lstlisting}[frame=single]
+% \end{lstlisting}
+
+% \begin{enumerate}[a.]
+%     \item 
+% \end{enumerate}
+\end{document}

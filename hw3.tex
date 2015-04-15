@@ -1,0 +1,269 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{enumerate}
+\usepackage{fancyhdr} % Required for custom headers
+\usepackage{lastpage} % Required to determine the last page for the footer
+\usepackage{extramarks} % Required for headers and footers
+\usepackage[usenames,dvipsnames]{color} % Required for custom colors
+\usepackage{graphicx} % Required to insert images
+\usepackage[tight,footnotesize]{subfigure} % Required for subfig
+\usepackage{caption} % Required for subfig
+\usepackage{hyperref} % Required for url
+\usepackage{listings} % Required for insertion of code
+\usepackage{courier} % Required for the courier font
+\usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+\linespread{1.1} % Line spacing
+\pagestyle{fancy}
+\lhead{\hmwkAuthorName} % Top left header
+% \chead{\hmwkClass\ (\hmwkClassInstructor\ \hmwkClassTime): \hmwkTitle} % Top center head
+\chead{\hmwkClass\ : \hmwkTitle} % Top center head
+\rhead{\firstxmark} % Top right header
+\lfoot{\lastxmark} % Bottom left footer
+\cfoot{} % Bottom center footer
+\rfoot{Page\ \thepage\ of\ \protect\pageref{LastPage}} % Bottom right footer
+\renewcommand\headrulewidth{0.4pt} % Size of the header rule
+\renewcommand\footrulewidth{0.4pt} % Size of the footer rule
+\setlength\parindent{0pt} % Removes all indentation from paragraphs
+
+% Define floor and ceiling
+\def\lc{\left\lceil}   
+\def\rc{\right\rceil}
+\def\lf{\left\lfloor}   
+\def\rf{\right\rfloor}
+
+% Set your language 
+%\lstset{language=Java}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+ 
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=8pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+\lstset{style=mystyle}
+
+% Header and footer for when a page split occurs within a problem environment
+\newcommand{\enterProblemHeader}[1]{
+\nobreak\extramarks{#1}{#1 continued on next page\ldots}\nobreak
+\nobreak\extramarks{#1 (continued)}{#1 continued on next page\ldots}\nobreak
+}
+
+% Header and footer for when a page split occurs between problem environments
+\newcommand{\exitProblemHeader}[1]{
+\nobreak\extramarks{#1 (continued)}{#1 continued on next page\ldots}\nobreak
+\nobreak\extramarks{#1}{}\nobreak
+}
+
+\setcounter{secnumdepth}{0} % Removes default section numbers
+\newcounter{homeworkProblemCounter} % Creates a counter to keep track of the number of problems
+
+\newcommand{\homeworkProblemName}{}
+\newenvironment{homeworkProblem}[1][Problem \arabic{homeworkProblemCounter}]{ % Makes a new environment called homeworkProblem which takes 1 argument (custom name) but the default is "Problem #"
+\stepcounter{homeworkProblemCounter} % Increase counter for number of problems
+\renewcommand{\homeworkProblemName}{#1} % Assign \homeworkProblemName the name of the problem
+\section{\homeworkProblemName} % Make a section in the document with the custom problem count
+\enterProblemHeader{\homeworkProblemName} % Header and footer within the environment
+}{
+\exitProblemHeader{\homeworkProblemName} % Header and footer after the environment
+}
+
+\newcommand{\problemAnswer}[1]{ % Defines the problem answer command with the content as the only argument
+\noindent\framebox[\columnwidth][c]{\begin{minipage}{0.98\columnwidth}#1\end{minipage}} % Makes the box around the problem answer and puts the content inside
+}
+
+\newcommand{\homeworkSectionName}{}
+\newenvironment{homeworkSection}[1]{ % New environment for sections within homework problems, takes 1 argument - the name of the section
+\renewcommand{\homeworkSectionName}{#1} % Assign \homeworkSectionName to the name of the section from the environment argument
+\subsection{\homeworkSectionName} % Make a subsection with the custom name of the subsection
+\enterProblemHeader{\homeworkProblemName\ [\homeworkSectionName]} % Header and footer within the environment
+}{
+\enterProblemHeader{\homeworkProblemName} % Header and footer after the environment
+}
+
+\newlength{\tabcont}
+
+\newcommand{\tab}[1]{%
+\settowidth{\tabcont}{#1}%
+\ifthenelse{\lengthtest{\tabcont < .25\linewidth}}%
+{\makebox[.25\linewidth][l]{#1}\ignorespaces}%
+{\makebox[.5\linewidth][l]{\color{red} #1}\ignorespaces}%
+}%
+%----------------------------------------------------------------------------------------
+%	NAME AND CLASS SECTION
+%----------------------------------------------------------------------------------------
+
+\newcommand{\hmwkTitle}{Homework\ \#3} % Assignment title
+\newcommand{\hmwkDueDate}{Monday,\ January\ 1,\ 2012} % Due date
+\newcommand{\hmwkClass}{Fundamental Algorithms} % Course/class
+\newcommand{\hmwkClassTime}{} % Class/lecture time
+\newcommand{\hmwkClassInstructor}{Prof. Joel Spencer} % Teacher/lecturer
+\newcommand{\hmwkAuthorName}{Songxiao Zhang, N10224459} % Your name
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\title{
+\textmd{\textbf{\hmwkClass:\ \hmwkTitle}}\\
+}
+\author{\textbf{\hmwkAuthorName}}
+
+\begin{document}
+
+\maketitle
+
+%----------------------------------------------------------------------------------------
+%	PROBLEM 1
+%----------------------------------------------------------------------------------------
+\begin{homeworkProblem}
+$\Theta(2n^4 − 11n + 98) = \Theta(n^4)$  \\
+$\Theta(6n + 43n \ lg n) = \Theta(n\lg n)$  \\
+$\Theta(63n^2 + 14n \ lg^5 n) = \Theta(n^2)$  \\
+$\Theta(3 + \frac{5}{n}) = \Theta(1)$
+\end{homeworkProblem}
+
+%----------------------------------------------------------------------------------------
+%	PROBLEM 2
+%----------------------------------------------------------------------------------------
+\begin{homeworkProblem}
+Input: \\
+\lbrack COW, DOG, SEA, RUG, ROW, MOB, BOX, TAB, BAR, EAR, TAR, DIG, BIG, TEA, NOW, FOX\rbrack \\
+
+Sort 1st digit \\
+\lbrack SEA, TEA, MOB, TAB, DOG, RUG, DIG, BIG, BAR, EAR, TAR, COW, ROW, NOW, BOX, FOX\rbrack \\
+
+Sort 2nd digit \\
+\lbrack TAB, BAR, EAR, TAR, SEA, TEA, DIG, BIG, MOB, DOG, COW, ROW, NOW, BOX, FOX, RUG\rbrack \\
+
+Sort 3rd digit \\
+\lbrack BAR, BIG, BOX, COW, DIG, DOG, EAR, FOX, MOB, NOW, ROW, RUG, SEA, TAB, TAR, TEA\rbrack  
+\end{homeworkProblem}
+
+%----------------------------------------------------------------------------------------
+%	PROBLEM 3
+%----------------------------------------------------------------------------------------
+\begin{homeworkProblem}
+In this case, each bucket has a size of 0.1. Represented as a open-addressing array storing linked list (tabs between cells just for readability): \\
+$[0 \rightarrow null, \quad 1 \rightarrow .13 \rightarrow .16, \quad 2 \rightarrow .20, \quad 3 \rightarrow .39, \quad 4 \rightarrow .43, \quad 5 \rightarrow .53, \quad 6 \rightarrow .64, \quad 7 \rightarrow .71 \rightarrow .79, \quad 8 \rightarrow .89, \quad 9 \rightarrow null ]$
+\end{homeworkProblem}
+
+%----------------------------------------------------------------------------------------
+%	PROBLEM 4
+%----------------------------------------------------------------------------------------
+\begin{homeworkProblem}
+\begin{enumerate}[a.]
+    \item There're 4 loops in {\tt COUNTING-SORT}: 
+          2 run in A.length ($N$) and 2 run in k ($N^N$). 
+          $N^N$ to in initiating C[i] to 0; N to count A[j] to C[A[j]]; 
+          $N^N$ to increment elements in C[i]; 
+          N to put values in B[C[A[j]]] and update C[A[j]]. 
+          In total, it's $2(N^N + N)$, or $\Theta(N^N)$. 
+    \item The running time of {\tt RADIX-SORT} is $\Theta(d(n + k))$ where n is the amount of
+          numbers, k is the number of possible values, and d is the number of digits. \\
+          In this question, $d = log_N N^N = N, n = N, k = N \ at \ most$. 
+          $\Theta(d(n + k)) = \Theta(N^2)$
+    \item $d = log_{N^{\sqrt{N}}} N^N = \sqrt{N}$ so running time is 
+          $\Theta(d(n + k)) = \Theta(N^\frac{3}{2})$. 
+\end{enumerate}
+\end{homeworkProblem}
+
+%----------------------------------------------------------------------------------------
+%	PROBLEM 5
+%----------------------------------------------------------------------------------------
+\begin{homeworkProblem}
+\begin{enumerate}[a.]
+    \item $T(N)=\Theta(N^2)$
+    \item $T(N)=\Theta(lgN)$
+    \item $T(N) = \sum\limits_{i=1}^{N}(\lceil i^{1/2} \rceil - 1)$ \\
+          Approaching from right: 
+          $T(N) \leq \sum\limits_{i=1}^{N}\lceil i^{1/2} \rceil 
+          \leq N\times N^{\frac{1}{2}} = N^{\frac{3}{2}} = \Theta(N^{\frac{3}{2}}) $    \\
+          Approaching from left: 
+          $T(N) > \sum\limits_{i=1}^{N} i^{1/2} - N \geq \sum\limits_{i=\frac{N}{2}}^{N} i^{1/2} - N
+          > \sum\limits_{i=\frac{N}{2}}^{N} N^{1/2} - N = \frac{N}{2}\sqrt{\frac{N}{2}}-N
+          = \Theta(N^{\frac{3}{2}})$    \\
+    % $\sum\limits_{j=1}^{N}\sum\limits_{i=1}^{\sqrt{N} - 1} (N - i^2) \times i$    \\
+          So the running time is $T(N)=\Theta(N^{\frac{3}{2}})$
+    \item Similar to $b$, at the end of each loop, $N \leq 2^{J} \times I$. Also we can get $N > 2^{J-1} \times I$. \\
+        Approaching from left: $2^{J-1} < \frac{N}{I}, \ r < lg \frac{N}{I} + 1$. 
+        Approaching from right: $2^J \geq \frac{N}{I}, \ r \geq lg \frac{N}{I}$.    \\
+    % In each round, the running time is $\Theta(log_2 N)$. The reason why total running time is not $\Theta(NlogN)$ is the same as {\tt MERGE-SORT} by adding up the tree structure. \\
+        Since the running time is $T(N)=\sum\limits_{i=1}^{N}\lceil lg \frac{N}{i} \rceil $, 
+        we can approach the running time from left:
+        $$T(N) \geq \sum\limits_{i=1}^{N} lg \frac{N}{i} = NlgN - lg(N!) 
+            = lg \frac{N^N}{N!} = lg \frac{e^N}{\sqrt{2\pi N}} = N - lg(\sqrt{2\pi N})= \Theta(N)$$. 
+        Also, approach the running time from right: 
+        $$T(N) < \sum\limits_{i=1}^{N} lg \frac{N}{i} + 1 = lg \frac{N^N}{N!} + N = \Theta(N)$$
+        Thus, the running time is $\Theta(N)$. 
+        
+        Validated by algorithm simulation: when $N=2^{20}=1048576$, running time is $715302401$, the difference $c = \frac{\vert result-g(n) \vert}{N}$ is $c^2 =1047893,  c^{1.5}=341,  c^{0.5}=682, logc=682$; \\
+        When $N=2^{22}=4194304$, running time is $5724523521$, the difference is $c^2=4192939,  c^{1.5}=683,  c^{0.5}=1364,  logc=1364$. $c^{1.5}$ is always closest to the running time, and converging to real running time as $N$ grows.  
+\end{enumerate}
+\end{homeworkProblem}
+
+%----------------------------------------------------------------------------------------
+%	PROBLEM 6
+%----------------------------------------------------------------------------------------
+\begin{homeworkProblem}
+Sorting inside a bucket takes time $O(m^2)$ when the bucket has $m$ items means it could be {\tt \uppercase{insertion-sort}}. But filling the items into the buckets is $\Theta(m)$. In order to reduce running time, we need to reduce in-bucket sorting. 
+
+The total running time is $$T(n) = \Theta(n) + \sum\limits_{i=0}^{n-1}O(n^2_i)$$
+
+The filling buckets costs $\Theta(n)$ and in-bucket sorting costs $\sum\limits_{i=0}^{n-1}O(n^2_i)$. The ideal case is the data range $k$ is close to the number of items $n$ so the running time can be reduced to $\Theta(n)+n\times O(2 - \frac{1}{n}) = \Theta(n)$
+\begin{enumerate}[a.]
+    \item Filling into n buckets of $m$ items is $O(N)$. But if the number of buckets is $n^2$, the initialization step: 
+\begin{lstlisting}[frame=single]
+for (int i = 0; i < Math.pow(n, 2); i++) 
+    B[i] = 0;
+\end{lstlisting} 
+    It also happens in incrementing next cell after indexing $A[n]$. It would run $n^2$ times and bring the running time from $O(N)$ to $O(N^2)$. 
+    \item Too few buckets introduces more in-bucket sorting, which costs $O(N^2)$. $n^{1/2}$ buckets would be too far less than needed. In-bucket sorting would dominate. 
+    $$E[T(n)] = \Theta(n) + \sum\limits_{i=0}^{n-1} O(E[n_i^2])$$   
+    The expectation $E[n_i^2]$ can be calculated directly by probability theory:  
+    \begin{equation} 
+    \begin{split}
+    E[n_i^2] & = \sum\limits_{j=0}^{n} j^2 P(n_i=j)  \\
+             & = \sum\limits_{j=0}^{n} j^2 \left( \frac{n}{j}\right)(\frac{1}{\sqrt{n}})^j(1-\frac{1}{\sqrt{n}})^{n-j}    \\
+             & = \sqrt{n}+\sqrt{n} \sum\limits_{j=1}^{n-1}(n-1) \left( \frac{n-2}{j-1} \right) (\frac{1}{\sqrt{n}})^{k+1}(1-\frac{1}{\sqrt{n}})^{n-2-k}  \\
+             & = n+\sqrt{n}-1
+    \end{split}
+    \end{equation}
+
+    the running time is $\Theta(N)$. 
+    \item The number of buckets should be close to the range of the data in order to minimize the number of in-bucket sorting $O(N^2)$. If more items in one bucket, the $O(N^2)$ in-bucket sorting would be significant so the running time increases from $O(N)$ to $O(N^2)$ as the worst-case. 
+\end{enumerate}
+\end{homeworkProblem}
+
+\vfill 
+
+\textbf{Reference claim}: Miss Yanhong Yang helped me understanding the probability method in calculating the expectation in the textbook. I've tried many times and often got stuck somewhere while doing similar practices. She's very patient to when I went to her and let her see my progress when I was keep trying. 
+
+% \begin{lstlisting}[frame=single]
+% \end{lstlisting}
+
+% \begin{enumerate}[a.]
+%     \item 
+% \end{enumerate}
+\end{document}
